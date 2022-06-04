@@ -12,4 +12,9 @@ class Event extends Model
 	{
 	    return $this->hasMany(Workshop::class);
 	}
+
+	public function futureworkshop()
+	{
+	    return $this->hasMany(Workshop::class)->where('start' , '>', now());
+	}
 }

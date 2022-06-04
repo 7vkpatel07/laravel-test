@@ -2,10 +2,10 @@
 
 
 namespace App\Models;
-use App\Models\Event;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Date;
+use App\Models\Event;
 
 class Workshop extends Model
 {
