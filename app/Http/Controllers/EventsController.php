@@ -101,6 +101,15 @@ class EventsController extends BaseController
      */
 
     public function getEventsWithWorkshops() {
+        $event = Event::all();
+        $result = [];
+        foreach ($event as $key => $value) {
+            $result[$key] = $value;
+            $result[$key]['workshop'] = $value->workshop;
+
+        }
+        return response()->json($result);
+
         throw new \Exception('implement in coding task 1');
     }
 
