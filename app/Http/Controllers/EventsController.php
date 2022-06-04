@@ -105,7 +105,7 @@ class EventsController extends BaseController
         $result = [];
         foreach ($event as $key => $value) {
             $result[$key] = $value;
-            $result[$key]['workshop'] = $value->workshop;
+            $result[$key]['workshops'] = $value->workshop;
 
         }
         return response()->json($result);
@@ -191,12 +191,15 @@ class EventsController extends BaseController
     public function getFutureEventsWithWorkshops() {
         $event = Event::all();
         $result = [];
+        $i = 0;
         foreach ($event as $key => $value) {
-            if(count($value->futureworkshop)){
-                $result[$key] = $value;
-                $result[$key]['workshop'] = $value->futureworkshop;
+            if(count($value->futureworkshop) > 0 && $value->id ){
+                $result[$i] = $value;
+                if($value->id){
+                    $result[$i]['workshops'] = $value->futureworkshop;
+                }
+                $i++;
             }
-
         }
         return response()->json($result);
         throw new \Exception('implement in coding task 2');

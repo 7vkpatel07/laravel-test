@@ -106,9 +106,10 @@ class MenuController extends BaseController
             }else{
                 $result[$i]['children'] = []; 
             }
+            $i++;
         }
-        // return response()->json($result);
         return $result;
+        // return response()->json($result);
         throw new \Exception('implement in coding task 3');
     }
 }
